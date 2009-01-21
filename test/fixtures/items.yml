@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: 
+  quantity: 
+  price: 1
+
+two:
+  name: 
+  quantity: 
+  price: 1
