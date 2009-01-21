@@ -1,0 +1,5 @@
+config/database.yml
+log/*
+tmp/*
+db/schema.rb
+secret
