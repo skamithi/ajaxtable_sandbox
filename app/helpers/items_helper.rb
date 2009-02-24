@@ -4,7 +4,7 @@ module ItemsHelper
     def sort_and_link_helper
       html_c = ''
       %w(name qty price).each do |header|
-        html_c << content_tag(:td , sort_link_helper(header), :class => sort_td_class_helper(header))
+        html_c << content_tag(:tr , sort_link_helper(header), :class => sort_td_class_helper(header))
       end
       html_c
     end

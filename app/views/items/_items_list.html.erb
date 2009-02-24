@@ -11,11 +11,16 @@
 <thead>
 <tr>
 <%= sort_and_link_helper %>
-</td>
-
+</tr>
 </thead>
+<tbody>
 <% for item in @items %>
-
+<tr>
+<%= content_tag(:td, item.name) %>
+<%= content_tag(:td, item.quantity) %>
+<%= content_tag(:td, item.price) %>
+</tr>
 <% end -%>
-
+</tbody>
+</table>
 <%end %>
