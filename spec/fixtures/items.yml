@@ -1,0 +1,29 @@
+first:
+  id: 1
+  name: hoe
+  quantity: 10
+  price: 10
+
+second:
+  id: 2
+  name: wheelbarrow
+  quantity: 20
+  price: 20
+
+third:
+  id: 3
+  name: wheels
+  quantity: 100
+  price: 300
+
+forth:
+  id: 4
+  name: cards
+  quantity: 200
+  price: 400
+
+fifth:
+  id: 5
+  name: cars
+  quantity: 4
+  price: 100
