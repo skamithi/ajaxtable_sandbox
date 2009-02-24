@@ -1,0 +1,15 @@
+BEGIN TRANSACTION;
+INSERT INTO "items" VALUES(1, 'hoe', 3, 10);
+INSERT INTO "items" VALUES(2, 'wheelbarrow', 2, 60);
+INSERT INTO "items" VALUES(3, 'gherkin', 15, 3);
+INSERT INTO "items" VALUES(4, 'batman', 1, 3000);
+INSERT INTO "items" VALUES(5, 'fish sausage', 2, 8);
+INSERT INTO "items" VALUES(6, 'sauerkraut', 9, 9);
+INSERT INTO "items" VALUES(7, 'watering-can', 4, 13);
+INSERT INTO "items" VALUES(8, 'dandelions', 78, 1);
+INSERT INTO "items" VALUES(9, 'refrigerator', 12, 250);
+INSERT INTO "items" VALUES(10, 'flying matches', 8, 145);
+INSERT INTO "items" VALUES(11, 'broken accordion', 1, 18);
+INSERT INTO "items" VALUES(12, 'savage whisper', 5, 7);
+INSERT INTO "items" VALUES(13, 'hysterical snail', 8, 13);
+COMMIT;
