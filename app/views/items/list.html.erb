@@ -1,0 +1,17 @@
+<h1> Welcome to my wonderful items list </h1>
+
+<p> This list is updated real-time from the world largested db </p>
+
+<h2>And here is the list..</h2>
+
+
+<% form_tag url_for(:controller=> 'items', :action => 'list' ) do %>
+  <%= label_tag 'query', 'Filter on an item name' %>
+  <%= text_field_tag(:query, nil, :size => 10) %>
+  <%= submit_tag('Update List') %>
+  <%= image_tag("spinner.gif", :class => 'spinner', :id => 'query_spinner') %>
+<% end -%>
+
+ <% content_tag :div, :id => 'table' do %>
+ <%= render :partial => 'items_list' %>
+ <% end %>

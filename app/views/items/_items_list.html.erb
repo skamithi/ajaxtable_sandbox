@@ -1,0 +1,21 @@
+<% if @total == 0 %>
+
+<p>No items found...</p>
+
+<% else %>
+
+<p>Num of items found: <b><%=  @total %></b></p>
+
+<%= will_paginate @items %>
+<table>
+<thead>
+<tr>
+<%= sort_and_link_helper %>
+</td>
+
+</thead>
+<% for item in @items %>
+
+<% end -%>
+
+<%end %>
