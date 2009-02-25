@@ -1,0 +1,4 @@
+/* Make sure all spinners are hidden by default */
+.spinner {
+  display: none
+}
