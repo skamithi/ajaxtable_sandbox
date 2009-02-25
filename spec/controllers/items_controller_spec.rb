@@ -9,7 +9,7 @@ describe ItemsController do
 
   describe "should list" do
       def do_list
-        get :list,  @list_params
+        get :index,  @list_params
       end
 
       it "all items if there is no sort order" do
@@ -45,7 +45,7 @@ describe ItemsController do
       end
 
       it "an ascending sorted list by quantity if the sort parameter is set to 'qty' " do
-        @list_params[:sort] = 'qty'
+        @list_params[:sort] = 'quantity'
         do_list
         assigns(:items).collect {|i| i.quantity.to_s }.should ==
                 %w{4 10 20 100 200}
@@ -53,7 +53,7 @@ describe ItemsController do
 
       it "a descending sorted list by quantity if the sort parameter " +
          "is set to 'qty_reverse' " do
-        @list_params[:sort] = 'qty_reverse'
+        @list_params[:sort] = 'quantity_reverse'
         do_list
         assigns(:items).collect {|i| i.quantity.to_s }.should ==
                 %w{200 100 20 10 4}

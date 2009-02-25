@@ -1,14 +1,14 @@
 class ItemsController < ApplicationController
-  def list
+  def index
     items_per_page = 10
 
-    sort = case params['sort']
-        when 'name' then 'name'
-        when 'qty' then 'quantity'
-        when 'price' then 'price'
+    session[:query] = params[:query]
+    @sort = case params['sort']
         when 'name_reverse' then 'name DESC'
-        when 'qty_reverse' then 'quantity DESC'
+        when 'quantity_reverse' then 'quantity DESC'
         when 'price_reverse' then 'price DESC'
+        else
+            params['sort']
     end
 
     unless params[:query].nil?
@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     end
 
     @total  = Item.count :conditions => conditions
-    @items = Item.paginate  :order => sort,
+    @items = Item.paginate  :order => @sort,
                                           :conditions => conditions,
                                           :per_page => items_per_page,
                                           :page => params[:page]

@@ -1,3 +1,11 @@
+<% if params[:query] %>
+
+<div id="search_for">
+Searching for all names containing <span><%= params[:query] %></span>
+</div>
+
+<%end %>
+
 <% if @total == 0 %>
 
 <p>No items found...</p>
