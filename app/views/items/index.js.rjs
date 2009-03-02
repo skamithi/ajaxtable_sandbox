@@ -1,0 +1,9 @@
+page['list_of_items'].replace_html :partial => 'list_items'
+
+# only refresh behaviours in $('list_of_items') element
+page << "
+Event.addBehavior ({
+    'th.sortit a' : Remote.Link,
+    'div.pagination a' : Remote.Link
+});
+"

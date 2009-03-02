@@ -1,14 +1,16 @@
 <% if params[:query] %>
 
-<div id="search_for">
+<p class="search_for">
+<% if params[:query]  && !params[:query].blank? %>
 Searching for all names containing <span><%= params[:query] %></span>
-</div>
+<% end %>
+</p>
 
 <%end %>
 
 <% if @total == 0 %>
 
-<p>No items found...</p>
+<p class="no_results">No items found...</p>
 
 <% else %>
 

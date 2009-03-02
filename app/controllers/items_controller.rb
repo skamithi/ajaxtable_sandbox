@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   def index
     items_per_page = 10
 
@@ -23,6 +24,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.js
     end
 
   end

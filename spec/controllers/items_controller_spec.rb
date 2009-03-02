@@ -7,6 +7,12 @@ describe ItemsController do
       @list_params = { :query => nil, :page => nil, :sort => nil }
   end
 
+  describe "- route generation" do
+    it "should map { :controller => 'items', :action => 'add_spinners' } to /items/add_spinners" do
+      route_for(:controller => 'items', :action => 'add_spinners').should == '/items/add_spinners'
+    end
+  end
+
   describe "should list" do
       def do_list
         get :index,  @list_params

@@ -10,12 +10,12 @@ describe ItemsHelper do
 
             it "should be sorted up if params[:sort] is '#{header}' "do
               params[:sort] = header
-              sort_td_class_helper(header).should == "#{header} sortup"
+              sort_td_class_helper(header).should =~ /#{header}.*sortup/
             end
 
             it "should be sorted down if params[:sort] is not '#{header}' " do
               params[:sort] = "#{header}_reverse"
-              sort_td_class_helper(header).should == "#{header} sortdown"
+              sort_td_class_helper(header).should =~ /#{header}.*sortdown/
             end
 
         end

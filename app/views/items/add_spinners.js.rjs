@@ -1,0 +1,4 @@
+page << "if (!$('query_spinner')) { "
+page.insert_html :after, 'search_form_submit_button',  image_tag("spinner.gif", :class => 'spinner', :id => 'query_spinner')
+page  << "$$('.spinner').invoke('hide');"
+page << "}"

@@ -1,4 +1,4 @@
-/* Make sure all spinners are hidden by default */
-.spinner {
-  display: none
+p.search_for span {
+    color: red;
+    font-weight: bold;
 }

@@ -3,14 +3,15 @@
 <p>And here is a list..You can sort it and search it</p>
 
 
-<% form_tag url_for(:controller=> 'items', :action => 'index'), :method => :get  do %>
-  <%= label_tag 'query', 'Filter on an item name' %>
-  <%= text_field_tag(:query, nil, :size => 10) %>
-  <%= submit_tag('Find') %>
-  <%= image_tag("spinner.gif", :class => 'spinner', :id => 'query_spinner') %>
-  <%= link_to 'Show All Items', url_for(:controller => 'items', :action => 'index')  %>
+<% form_tag url_for(:controller=> 'items', :action => 'index'),
+            {:method => :get, :id => 'search_form'}  do %>
+  <%= label_tag 'ajaxtable_query', 'Filter on an item name' %>
+  <%= text_field_tag(:ajaxtable_query, nil, :size => 10, :value => '', :maxlength => 20, :size => 22) %>
+  <%= submit_tag('Find', :id => 'search_form_submit_button') %>
+  <%= link_to 'Show All Items', url_for(:controller => 'items', :action => 'index'),
+            :id => 'show_all_items' %>
 <% end -%>
 
- <% content_tag :div, :id => 'table' do %>
+ <% content_tag :div, :id => 'list_of_items' do %>
  <%= render :partial => 'list_items' %>
  <% end %>

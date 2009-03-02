@@ -12,11 +12,32 @@ describe "list items page" do
     assigns[:total] = @items.count
     # have to specify rb file location. In this case I'm looking for /items/index.html.rb
     # to render..so call " render '/items/index' ", no html.erb necessary
-    render "/items/index"
+    render "/items/index", :layout => "application"
+  end
+
+  # Make sure to specify the :layout keyword in the render. this adds the layout template
+  # which as the DOCTYPE and <html> tags needed for this check.
+  it "should be xhtml strict 1.0 compliant" do
+    local_w3c_validator = 'http://localhost:8080/w3c-markup-validator/check'
+    validator = MarkupValidator.new(:validator_uri => local_w3c_validator)
+    results = validator.validate_text(response.body)
+    if (results.errors.length > 0)
+        results.errors.each do |error|
+            puts "validation failed #{error}\n"
+        end
+    end
+    results.errors.length.should == 0
   end
 
   it "should have 1 form" do
     response.body.should have_tag('form', :count => 1)
+  end
+
+  it "should contain 1 <div> called 'list_of_items' and this must contain  " +
+     "the table of items" do
+    response.body.should have_tag('div#list_of_items', :count => 1) do
+        have_tag('table', :count => 1)
+    end
   end
 
   describe "search form" do
@@ -28,10 +49,6 @@ describe "list items page" do
       end
     end
 
-  end
-
-  it "should have 1 table" do
-      response.body.should have_tag("table", :count => 1)
   end
 
   it "should have 2 items listed in the table" do
@@ -49,6 +66,9 @@ describe "list items page" do
         end
     end
 
+    it "should have <th> tags each with a 'sortit' class name" do
+        response.body.should have_tag('table th.sortit', :count => 3)
+    end
 
     it "should have 2 rows of data" do
         response.body.should have_tag('table') do

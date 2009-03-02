@@ -10,7 +10,7 @@ module ItemsHelper
     end
 
     def sort_td_class_helper(sort_type)
-      classname = [sort_type]
+      classname = [sort_type, 'sortit']
       sort_direction = (params[:sort] == sort_type)? "sortup" : "sortdown"
       classname << sort_direction
       classname.join(' ')
@@ -30,7 +30,7 @@ module ItemsHelper
         :title => 'Sort by this field',
         :class => key
       }
-      link_to(param.capitalize, url_for(:controller => 'items', :action => 'list', :params => params.merge({:sort => key})), html_options )
+      link_to(param.capitalize, url_for(:controller => 'items', :action => 'index', :params => params.merge({:sort => key})), html_options )
     end
 
 end
