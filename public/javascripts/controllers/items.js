@@ -4,6 +4,7 @@ Event.addBehavior({
                       method: 'get',
                       parameters: {}
                     });
+        $('search_form').reset();
     },
 
     '#query': Observed(
