@@ -1,4 +1,7 @@
 config/database.yml
+public/javascripts/defaults.js
+public/javascripts/unobtrusive.js
+public/javascripts/controllers.js
 log/*
 tmp/*
 db/schema.rb
