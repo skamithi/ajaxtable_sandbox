@@ -15,8 +15,8 @@
 </div>
 <!-- Tested putting all javascript files in one cache file using YUI compressor
   This doesn't work. Putting each group of js files in their own cache files works -->
-<%= javascript_include_tag :defaults , :cache => 'defaults' %>
-<%= javascript_include_tag :unobtrusive, :cache => 'unobstrusive'  %>
+<%= javascript_include_tag :defaults , :cache => 'cache/defaults' %>
+<%= javascript_include_tag :unobtrusive, :cache => 'cache/unobtrusive'  %>
 <%= add_javascript_helper %>
 </body>
 </html>
