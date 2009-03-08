@@ -6,7 +6,7 @@ module ApplicationHelper
         html_c = ''
         %w{items}.each do |c|
             if controller.controller_name == c
-                html_c << javascript_include_tag("controllers/#{c}", :cache => true)
+                html_c << javascript_include_tag("controllers/#{c}", :cache => 'controllers')
             end
         end
         html_c

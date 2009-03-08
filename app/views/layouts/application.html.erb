@@ -1,19 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Ajax table manipulation attempt</title>
-  <%= stylesheet_link_tag 'application' %>
+  <%= stylesheet_link_tag 'application'%>
 </head>
 <body>
 <div id="content">
 <%= yield  %>
 </div>
-<%# Put Javascript files at the end of the <body> not after the body." %>
-<%= javascript_include_tag :defaults %>
-<%= javascript_include_tag :unobtrusive %>
+<!-- Tested putting all javascript files in one cache file using YUI compressor
+  This doesn't work. Putting each group of js files in their own cache files works -->
+<%= javascript_include_tag :defaults , :cache => 'defaults' %>
+<%= javascript_include_tag :unobtrusive, :cache => 'unobstrusive'  %>
 <%= add_javascript_helper %>
 </body>
 </html>
